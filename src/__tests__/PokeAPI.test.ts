@@ -40,7 +40,7 @@ describe("PokeAPI Integration Tests", () => {
     it("should fetch Pokemon list with correct pagination", async () => {
       const limit = 10;
       const offset = 0;
-      const pokemonList = await api.listPokemon(limit, offset);
+      const pokemonList = await api.listPokemon({ limit, offset });
 
       expect(pokemonList).toBeDefined();
       expect(pokemonList.results.length).toBe(limit);

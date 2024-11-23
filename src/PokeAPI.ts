@@ -38,12 +38,37 @@ export type Generation = {
   versionGroups: [];
 };
 
-class PokeAPI {
+/**
+ * Configuration options for the Pokemon API client
+ * @interface PokeAPIConfig
+ */
+export interface PokeAPIConfig {
+  /** Base URL for the API */
+  baseUrl?: string;
+  /** Timeout in milliseconds */
+  timeout?: number;
+}
+
+/**
+ * Client for interacting with the Pokemon API
+ * @class PokeAPI
+ *
+ * @example
+ * ```typescript
+ * const api = new PokeAPI();
+ * const pikachu = await api.getPokemon('pikachu');
+ * ```
+ */
+export class PokeAPI {
   private baseURL: string;
   private cache: Map<string, any>;
 
-  constructor(baseURL = "https://pokeapi.co/api/v2/") {
-    this.baseURL = baseURL;
+  /**
+   * Creates a new PokeAPI instance
+   * @param config - Optional configuration options
+   */
+  constructor(config?: PokeAPIConfig) {
+    this.baseURL = config?.baseUrl || "https://pokeapi.co/api/v2/";
     this.cache = new Map();
   }
 
@@ -61,15 +86,45 @@ class PokeAPI {
     }
   }
 
-  // Get a Pokémon by name or ID
+  /**
+   * Fetches a Pokemon by name or ID
+   *
+   * @param nameOrId - The name or ID of the Pokemon
+   * @returns Promise containing the Pokemon data
+   * @throws Will throw an error if the Pokemon is not found
+   *
+   * @example
+   * ```typescript
+   * const api = new PokeAPI();
+   * const pikachu = await api.getPokemon('pikachu');
+   * console.log(pikachu.name); // 'pikachu'
+   * ```
+   */
   async getPokemon(nameOrId: string | number): Promise<Pokemon> {
     return await this.fetch<Pokemon>(`pokemon/${nameOrId}`);
   }
 
-  // List Pokémon with pagination
-  async listPokemon(limit = 20, offset = 0): Promise<PokemonList> {
+  /**
+   * Lists Pokemon with pagination
+   *
+   * @param options - Pagination options
+   * @param options.limit - Number of Pokemon to return (default: 20)
+   * @param options.offset - Number of Pokemon to skip (default: 0)
+   * @returns Promise containing the paginated Pokemon list
+   *
+   * @example
+   * ```typescript
+   * const api = new PokeAPI();
+   * const list = await api.listPokemon({ limit: 10 });
+   * console.log(list.results.length); // 10
+   * ```
+   */
+  async listPokemon(options?: {
+    limit?: number;
+    offset?: number;
+  }): Promise<PokemonList> {
     return await this.fetch<PokemonList>(
-      `pokemon?limit=${limit}&offset=${offset}`
+      `pokemon?limit=${options?.limit || 20}&offset=${options?.offset || 0}`
     );
   }
 

@@ -3,7 +3,7 @@
 import React from "react";
 import PokeAPI, { Generation, Pokemon, PokemonList } from "../PokeAPI";
 
-type PokemonContextType = {
+export type PokemonContextType = {
   getPokemon: (nameOrId: string | number) => Promise<Pokemon>;
   listPokemon: (limit?: number, offset?: number) => Promise<PokemonList>;
   getGeneration: (nameOrId: string | number) => Promise<Generation>;
@@ -41,7 +41,7 @@ export function PokemonProvider({ children }: { children: React.ReactNode }) {
     try {
       setLoading(true);
       setError(null);
-      return await api.listPokemon(limit, offset);
+      return await api.listPokemon({ limit, offset });
     } catch (err) {
       setError(err instanceof Error ? err : new Error("Unknown error"));
       throw err;
