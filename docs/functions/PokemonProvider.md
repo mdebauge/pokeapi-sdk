@@ -20,4 +20,4 @@
 
 ## Defined in
 
-[contexts/PokemonProvider.tsx:22](https://github.com/mdebauge/pokeapi-sdk/blob/09d8f8ed9b4027b59c5c525e455f6cd9dac61ae2/src/contexts/PokemonProvider.tsx#L22)
+[contexts/PokemonProvider.tsx:22](https://github.com/mdebauge/pokeapi-sdk/blob/1309870e78f69a42937f2eee58af7656e2900489/src/contexts/PokemonProvider.tsx#L22)

@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Read the generated API documentation
-const apiDocsPath = path.join(__dirname, "../docs/modules.md");
+const apiDocsPath = path.join(__dirname, "../docs/README.md");
 const apiDocs = fs.readFileSync(apiDocsPath, "utf8");
 
 // Read the current README

@@ -36,7 +36,7 @@ Optional configuration options
 
 #### Defined in
 
-[PokeAPI.ts:70](https://github.com/mdebauge/pokeapi-sdk/blob/09d8f8ed9b4027b59c5c525e455f6cd9dac61ae2/src/PokeAPI.ts#L70)
+[PokeAPI.ts:70](https://github.com/mdebauge/pokeapi-sdk/blob/1309870e78f69a42937f2eee58af7656e2900489/src/PokeAPI.ts#L70)
 
 ## Methods
 
@@ -54,7 +54,7 @@ Optional configuration options
 
 #### Defined in
 
-[PokeAPI.ts:132](https://github.com/mdebauge/pokeapi-sdk/blob/09d8f8ed9b4027b59c5c525e455f6cd9dac61ae2/src/PokeAPI.ts#L132)
+[PokeAPI.ts:132](https://github.com/mdebauge/pokeapi-sdk/blob/1309870e78f69a42937f2eee58af7656e2900489/src/PokeAPI.ts#L132)
 
 ***
 
@@ -90,7 +90,7 @@ console.log(pikachu.name); // 'pikachu'
 
 #### Defined in
 
-[PokeAPI.ts:103](https://github.com/mdebauge/pokeapi-sdk/blob/09d8f8ed9b4027b59c5c525e455f6cd9dac61ae2/src/PokeAPI.ts#L103)
+[PokeAPI.ts:103](https://github.com/mdebauge/pokeapi-sdk/blob/1309870e78f69a42937f2eee58af7656e2900489/src/PokeAPI.ts#L103)
 
 ***
 
@@ -130,4 +130,4 @@ console.log(list.results.length); // 10
 
 #### Defined in
 
-[PokeAPI.ts:122](https://github.com/mdebauge/pokeapi-sdk/blob/09d8f8ed9b4027b59c5c525e455f6cd9dac61ae2/src/PokeAPI.ts#L122)
+[PokeAPI.ts:122](https://github.com/mdebauge/pokeapi-sdk/blob/1309870e78f69a42937f2eee58af7656e2900489/src/PokeAPI.ts#L122)
