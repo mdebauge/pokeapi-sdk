@@ -8,7 +8,7 @@
     "prepare": "npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "docs": "typedoc typedoc.json"
+    "docs": "typedoc --entryPointStrategy expand --entryPoints src/index.ts --out docs"
   },
   "files": [
     "dist"

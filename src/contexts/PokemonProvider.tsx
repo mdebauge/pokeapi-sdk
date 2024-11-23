@@ -3,7 +3,7 @@
 import React from "react";
 import PokeAPI, { Generation, Pokemon, PokemonList } from "../PokeAPI";
 
-export type PokemonContextType = {
+type PokemonContextType = {
   getPokemon: (nameOrId: string | number) => Promise<Pokemon>;
   listPokemon: (limit?: number, offset?: number) => Promise<PokemonList>;
   getGeneration: (nameOrId: string | number) => Promise<Generation>;

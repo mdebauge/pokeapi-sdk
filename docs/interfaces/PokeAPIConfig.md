@@ -19,7 +19,7 @@ Base URL for the API
 
 #### Defined in
 
-[PokeAPI.ts:47](https://github.com/mdebauge/pokeapi-sdk/blob/9cfad3b7316a4e43eb21ffb702cd52dff4b5c565/src/PokeAPI.ts#L47)
+[PokeAPI.ts:47](https://github.com/mdebauge/pokeapi-sdk/blob/09d8f8ed9b4027b59c5c525e455f6cd9dac61ae2/src/PokeAPI.ts#L47)
 
 ***
 
@@ -31,4 +31,4 @@ Timeout in milliseconds
 
 #### Defined in
 
-[PokeAPI.ts:49](https://github.com/mdebauge/pokeapi-sdk/blob/9cfad3b7316a4e43eb21ffb702cd52dff4b5c565/src/PokeAPI.ts#L49)
+[PokeAPI.ts:49](https://github.com/mdebauge/pokeapi-sdk/blob/09d8f8ed9b4027b59c5c525e455f6cd9dac61ae2/src/PokeAPI.ts#L49)

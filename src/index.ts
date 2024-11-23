@@ -7,9 +7,7 @@ export type {
 } from "./PokeAPI";
 export {
   PokemonProvider,
-  PokemonContext,
   usePokemon,
   usePokemonList,
   useGeneration,
 } from "./contexts/PokemonProvider";
-export type { PokemonContextType } from "./contexts/PokemonProvider";

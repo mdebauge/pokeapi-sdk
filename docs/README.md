@@ -16,12 +16,7 @@
 
 - [Generation](type-aliases/Generation.md)
 - [Pokemon](type-aliases/Pokemon.md)
-- [PokemonContextType](type-aliases/PokemonContextType.md)
 - [PokemonList](type-aliases/PokemonList.md)
-
-## Variables
-
-- [PokemonContext](variables/PokemonContext.md)
 
 ## Functions
 
