@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Header } from "@/components/header";
+import { Sidebar } from "@/components/sidebar";
+import { PokemonProvider } from "pokeapi-sdk";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-800 text-white`}
       >
-        {children}
+        <PokemonProvider>
+          <Header />
+          <Sidebar />
+          <main className="ml-64 mt-[65px]">{children}</main>
+        </PokemonProvider>
       </body>
     </html>
   );

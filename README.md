@@ -9,31 +9,32 @@ This is a simple TypeScript client for fetching Pokemon data from the PokeAPI. I
 ##API Documentation
 
 <!-- API_DOCS_START -->
+
 **pokeapi-sdk** • **Docs**
 
-***
+---
 
 # pokeapi-sdk
 
 ## Classes
 
-- [PokeAPI](classes/PokeAPI.md)
+- [PokeAPI](docs/classes/PokeAPI.md)
 
 ## Interfaces
 
-- [PokeAPIConfig](interfaces/PokeAPIConfig.md)
+- [PokeAPIConfig](docs/interfaces/PokeAPIConfig.md)
 
 ## Type Aliases
 
-- [Generation](type-aliases/Generation.md)
-- [Pokemon](type-aliases/Pokemon.md)
-- [PokemonList](type-aliases/PokemonList.md)
+- [Generation](docs/type-aliases/Generation.md)
+- [Pokemon](docs/type-aliases/Pokemon.md)
+- [PokemonList](docs/type-aliases/PokemonList.md)
 
 ## Functions
 
-- [PokemonProvider](functions/PokemonProvider.md)
-- [useGeneration](functions/useGeneration.md)
-- [usePokemon](functions/usePokemon.md)
-- [usePokemonList](functions/usePokemonList.md)
+- [PokemonProvider](docs/functions/PokemonProvider.md)
+- [useGeneration](docs/functions/useGeneration.md)
+- [usePokemon](docs/functions/usePokemon.md)
+- [usePokemonList](docs/functions/usePokemonList.md)
 
 <!-- API_DOCS_END -->
