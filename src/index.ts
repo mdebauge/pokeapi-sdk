@@ -5,4 +5,5 @@ export {
   PokemonContext,
   usePokemon,
   usePokemonList,
+  useGeneration,
 } from "./contexts/PokemonProvider";

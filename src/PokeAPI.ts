@@ -26,6 +26,18 @@ export type PokemonList = {
   results: { name: string; url: string }[];
 };
 
+export type Generation = {
+  abilities: [];
+  id: number;
+  mainRegion: {};
+  moves: [];
+  name: string;
+  names: [];
+  pokemonSpecies: [];
+  types: [];
+  versionGroups: [];
+};
+
 class PokeAPI {
   private baseURL: string;
   private cache: Map<string, any>;
@@ -41,7 +53,7 @@ class PokeAPI {
     }
 
     try {
-      const response = await axios.get(`${this.baseURL}${endpoint}`);
+      const response = await axios.get<T>(`${this.baseURL}${endpoint}`);
       this.cache.set(endpoint, response.data);
       return response.data;
     } catch (error) {
@@ -59,6 +71,11 @@ class PokeAPI {
     return await this.fetch<PokemonList>(
       `pokemon?limit=${limit}&offset=${offset}`
     );
+  }
+
+  // Get generation by name or ID
+  async getGeneration(generation: string | number): Promise<Generation> {
+    return await this.fetch<Generation>(`generation/${generation}`);
   }
 }
 

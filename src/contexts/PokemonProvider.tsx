@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-import PokeAPI, { Pokemon, PokemonList } from "../PokeAPI";
+import PokeAPI, { Generation, Pokemon, PokemonList } from "../PokeAPI";
 
 type PokemonContextType = {
   getPokemon: (nameOrId: string | number) => Promise<Pokemon>;
   listPokemon: (limit?: number, offset?: number) => Promise<PokemonList>;
+  getGeneration: (nameOrId: string | number) => Promise<Generation>;
   loading: boolean;
   error: Error | null;
 };
@@ -23,7 +24,7 @@ export function PokemonProvider({ children }: { children: React.ReactNode }) {
   const [error, setError] = React.useState<Error | null>(null);
   const api = new PokeAPI();
 
-  const getPokemon = React.useCallback(async (nameOrId: string | number) => {
+  const getPokemon = async (nameOrId: string | number) => {
     try {
       setLoading(true);
       setError(null);
@@ -34,34 +35,44 @@ export function PokemonProvider({ children }: { children: React.ReactNode }) {
     } finally {
       setLoading(false);
     }
-  }, []);
+  };
 
-  const listPokemon = React.useCallback(
-    async (limit?: number, offset?: number) => {
-      try {
-        setLoading(true);
-        setError(null);
-        return await api.listPokemon(limit, offset);
-      } catch (err) {
-        setError(err instanceof Error ? err : new Error("Unknown error"));
-        throw err;
-      } finally {
-        setLoading(false);
-      }
-    },
-    []
-  );
+  const listPokemon = async (limit?: number, offset?: number) => {
+    try {
+      setLoading(true);
+      setError(null);
+      return await api.listPokemon(limit, offset);
+    } catch (err) {
+      setError(err instanceof Error ? err : new Error("Unknown error"));
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getGeneration = async (generation: string | number) => {
+    try {
+      setLoading(true);
+      setError(null);
+      return await api.getGeneration(generation);
+    } catch (err) {
+      setError(err instanceof Error ? err : new Error("Unknown error"));
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <PokemonContext.Provider
-      value={{ getPokemon, listPokemon, loading, error }}
+      value={{ getPokemon, listPokemon, getGeneration, loading, error }}
     >
       {children}
     </PokemonContext.Provider>
   );
 }
 
-// Custom hooks
+// Hooks
 export function usePokemon(nameOrId: string | number) {
   const context = React.useContext(PokemonContext);
   const [pokemon, setPokemon] = React.useState<Pokemon | null>(null);
@@ -103,6 +114,28 @@ export function usePokemonList(limit?: number, offset?: number) {
 
   return {
     pokemonList,
+    loading: context.loading,
+    error: context.error,
+  };
+}
+
+export function useGeneration(nameOrId: string | number) {
+  const context = React.useContext(PokemonContext);
+  const [generation, setGeneration] = React.useState<Generation | null>(null);
+
+  if (!context) {
+    throw new Error("useGeneration must be used within a PokemonProvider");
+  }
+
+  React.useEffect(() => {
+    context
+      .getGeneration(nameOrId)
+      .then(setGeneration)
+      .catch(() => setGeneration(null));
+  }, [nameOrId, context.getGeneration]);
+
+  return {
+    generation,
     loading: context.loading,
     error: context.error,
   };
